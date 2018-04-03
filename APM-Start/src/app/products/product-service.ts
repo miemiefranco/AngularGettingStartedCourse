@@ -17,11 +17,17 @@ export class ProductService{
   }
   
   private _productURL = './api/products/products.json';
+  private _singleProductURL = './api/products/product.json';
 
   getProducts(): Observable<IProduct[]>{
    return this._http.get<IProduct[]>(this._productURL)
    .do(data => console.log('All: ' + JSON.stringify(data)))
    .catch(this.handleError);
+  }
+
+  getProduct(productId: number): Observable<IProduct>{
+    //ToDo -fetch data from service using productID
+    return this._http.get<IProduct>(this._singleProductURL).catch(this.handleError);
   }
 
   private handleError(err: HttpErrorResponse)

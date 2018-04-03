@@ -2,4 +2,59 @@
   <div class="panel-heading">
     {{pageTitle + ': '+ product.productName }}
   </div>
+  <div class="panel-body">
+    <div class="col-md-2">
+      <div class="row">
+        Name:
+      </div>
+      <div class="row">
+        Code:
+      </div>
+      <div class="row">
+        Description:
+      </div>
+      <div class="row">
+          Avaliability:
+      </div>
+      <div class="row">
+          Price:
+      </div>
+      <div class="row">
+          5 Star Rating:
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="row">
+        {{product.productName}}
+      </div>
+      <div class="row">
+          {{product.productCode}}
+      </div>
+      <div class="row">
+          {{product.description}}
+      </div>
+      <div class="row">
+        {{product.releaseDate}}
+      </div>
+      <div class="row">
+         {{product.price | currency:'GBP' : true: '1.2-2'}}
+      </div>
+      <div class="row">
+          <pm-star [rating]='product.starRating'>                                
+          </pm-star>
+       </div>
+    </div>
+    <div class="col-md-6">
+      <div class="row">
+        <img [src]='product.imageUrl'
+             [style.width.px] = '200' 
+             [style.margin.px] = '20'/>
+      </div>
+    </div>
+  </div>
+  <div class="panel-footer">
+    <a class="btn btn-default" (click)="onBack()" style="width:80px">
+      <i class="glyphicon glyphicon-chevron-left"></i>Back
+    </a>
+  </div>
 </div>
